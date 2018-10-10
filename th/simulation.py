@@ -23,11 +23,12 @@ Bz_inner_int = (sigma * (zd - z) * rho) / \
 Bw_inner_int = (sigma * rho) / \
     (x_distance + y_distance + z_distance)
 
+# 頭にポインタをつけないと引数が展開されない
 func_list = [x, y, z, xd, yd, zd, sigma, Psi]
 Bz = Integrate(
-    Integrate(Bz_inner_int, rho, 0, Psi)(x, y, z, xd, yd, zd, sigma, Psi), 
-    phi, 0, 2 * np.pi)(x, y, z, xd, yd, zd, sigma, Psi)
+    Integrate(Bz_inner_int, rho, 0, Psi)(*func_list), 
+    phi, 0, 2 * np.pi)(*func_list)
 
-Bw = Integrate(
-    Integrate(Bw_inner_int, rho, 0, Psi)(x, y, z, xd, yd, zd, sigma, Psi), 
-    phi, 0, 2 * np.pi)(x, y, z, xd, yd, zd, sigma, Psi)
+Bw_abs = Integrate(
+    Integrate(Bw_inner_int, rho, 0, Psi)(*func_list), 
+    phi, 0, 2 * np.pi)(*func_list)
