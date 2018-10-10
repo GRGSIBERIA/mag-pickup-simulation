@@ -19,12 +19,12 @@ psi = sym.Symbol("\\psi")
 Phi = sym.Symbol("\\Phi")
 gamma = sym.Symbol("\\gamma")
 
-# B_z = sym.integrate(sym.integrate(
-#     (sigma * (zd - z) * rho) /
-#     (((xd - (x - rho * sym.cos(Phi)))**2 + (yd - (y - rho * sym.sin(Phi)))**2 + (zd - z)**2)**(3/2))
-#     , (rho, 0, psi)), (Phi, 0, 2 * sym.pi))
+B_z = sym.integrate(sym.integrate(
+    (sigma * (zd - z) * rho) /
+    (((xd - (x - rho * sym.cos(Phi)))**2 + (yd - (y - rho * sym.sin(Phi)))**2 + (zd - z)**2)**(3/2))
+    , (rho, 0, psi)), (Phi, 0, 2 * sym.pi))
 
-#print("compiled B_z")
+print("compiled B_z")
 
 abs_B_w = sym.integrate(sym.integrate(
     (sigma * rho) /
