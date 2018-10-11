@@ -32,3 +32,7 @@ Bz = Integrate(
 Bw_abs = Integrate(
     Integrate(Bw_inner_int, rho, 0, Psi)(*func_list), 
     phi, 0, 2 * np.pi)(*func_list)
+
+
+p, pd, P = T.dvectors("p", "P'", "P")
+
