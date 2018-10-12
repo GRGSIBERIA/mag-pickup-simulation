@@ -35,4 +35,3 @@ Bw_abs = Integrate(
 
 
 p, pd, P = T.dvectors("p", "P'", "P")
-
