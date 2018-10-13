@@ -1,6 +1,6 @@
 #-*- encoding: utf-8
 import csv
-from numpy as np 
+import numpy as np 
 
 class Coil:
     def __init__(self, path: str):
@@ -24,6 +24,12 @@ class Coil:
             next(reader)    # ヘッダを読み飛ばす
 
             for row in reader:
-                rows.append(row)
+                data = []
+                for datum in row:
+                    data.append(float(datum))   # float型変換を忘れずに
+                rows.append(data)
         
-        
+        for row in rows:
+            self.times.append(row[0])
+            self.position.append(row[1:4])
+            self.direction.append(row[4:-1])
