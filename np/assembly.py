@@ -73,18 +73,6 @@ class Coil(TimePosition):
         tは時間，Pはコイルの位置，ZはコイルのZ向き
         """
         super().__init__(**kwargs)
-        self.times = []
-        self.positions = []
-        
-        if kwargs.has_key("path"):
-            for row in self._rows:
-                self.times.append(row[0])
-                self.positions.append(np.array(row[1:4]))
-            self.times = np.array(self.times)
-            self._rows = None
-        else:
-            self.times = kwargs["times"]
-            self.positions = kwargs["positions"]
 
 class Wire(TimePosition):
     """
