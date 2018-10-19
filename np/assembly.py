@@ -8,11 +8,11 @@ class DataSheet:
     データシートの基底クラス
     パスを読み込んで行列に直すだけ
     """
-    def __init__(self, **kwargs:dict):
-        if kwargs.has_key("path"):
+    def __init__(self, **kwargs:Dict):
+        if "path" in kwargs:
             path = kwargs["path"]
             has_header = True
-            if kwargs.has_key("has_header"):
+            if "has_header" in kwargs:
                 has_header = kwargs["has_header"]
             self._rows = []
             with open(path, "r") as f:
@@ -37,7 +37,7 @@ class TimePosition(DataSheet):
         self.times = []
         self.positions = []
 
-        if kwargs.has_key("path"):
+        if "path" in kwargs:
             for row in self._rows:
                 self.times.append(row[0])
                 ws = []
