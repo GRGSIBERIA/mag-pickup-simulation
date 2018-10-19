@@ -80,12 +80,12 @@ class FieldStrengthOfMagneticMonopole:
         return upper / under
 
 if __name__ == "__main__":
-    p = np.array([0, 0, 0])
-    pd = np.array([2, 2, 2])
-    P = np.array([3, 3, 3])
+    p = np.array([0, 0, 0.0])
+    pd = np.array([15, 0, 7.1])
+    P = np.array([2, 2, 2])
     
-    sigma = 5   # 電荷密度
-    Psi = 3     # 磁気単極子の半径
+    sigma = 1   # 電荷密度
+    Psi = 6.5     # 磁気単極子の半径
     gamma = 1   # 永久磁石で誘導されたワイヤの局所磁場
 
     fsmm = FieldStrengthOfMagneticMonopole(p, pd, sigma, Psi)
