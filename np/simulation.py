@@ -18,7 +18,7 @@ class FieldStrengthOfMagneticMonopole:
         :param origin: 磁気単極子の原点
         :param wire_point: ワイヤー位置
         :param _sigma: 電荷密度
-        :param _Psi: 測定半径
+        :param _Psi: 磁気単極子の半径
         """
         self.sigma = _sigma 
         self.Psi = _Psi
