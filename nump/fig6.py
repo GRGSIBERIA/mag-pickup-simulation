@@ -3,7 +3,7 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plot
 
-from nump.system.simulation import FieldStrengthOfMagneticMonopole
+from system.simulation import FieldStrengthOfMagneticMonopole
 
 class Figure6:
     def __init__(self):
@@ -26,3 +26,7 @@ class Figure6:
 
         plot.plot(self.positions, self.bws, "o")
         plot.show()
+
+if __name__ == "__main__":
+    print(2.7*6.5**2*np.pi*10**22 / 27)
+    a = Figure6()
