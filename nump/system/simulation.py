@@ -37,7 +37,7 @@ class FieldStrengthOfMagneticMonopole:
     
     def _frac_under_out(self, _d_rho, _d_theta):
         frac_under_in = _d_rho * self.xi * self._phi(_d_theta) + self.wire_point - self.origin
-        return np.power(np.linalg.norm(frac_under_in), 2.)
+        return np.power(np.linalg.norm(frac_under_in), 3.)
 
     def _compute_Bz_in(self, _d_rho: float, _d_theta: float):
         """

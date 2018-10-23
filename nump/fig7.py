@@ -4,13 +4,14 @@ import numpy as np
 from system.simulation import FieldStrengthOfMagneticMonopole
 from figbase import FigBase
 
-class Figure6(FigBase):
+class Figure7(FigBase):
     def __init__(self, radius=6.5, _height=2.5):
-        super().__init__("csv/Fig6.csv", radius, _height)
+        super().__init__("csv/Fig7.csv", radius, _height)
         for i, _ in enumerate(self.positions):
-            pos = np.array([0, 0, self.positions[i] + self.height])
+            pos = np.array([self.positions[i], 0, self.height + 7.1])
             mag = FieldStrengthOfMagneticMonopole(self.origin, pos, self.sigma, self.psi)
             self.bws.append(mag.computeBw()[0])
-    
-fig = Figure6()
+        print(self.bws)
+
+fig = Figure7()
 fig.showCompareBw()
