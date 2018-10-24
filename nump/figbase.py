@@ -45,3 +45,7 @@ class FigBase:
         plot.ylabel("-> $\\sigma$")
         plot.show()
     
+    def showCompareBz(self):
+        #単純に直径だけ引いた部分との差を取っているだけでは？
+        pass
+        
