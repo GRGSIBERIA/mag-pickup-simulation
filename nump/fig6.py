@@ -14,3 +14,4 @@ class Figure6(FigBase):
     
 fig = Figure6()
 fig.showCompareBw()
+fig.printSigma()
