@@ -13,15 +13,15 @@ class FieldStrengthOfMagneticMonopole:
     このクラスは磁気単極子がZ軸を磁極として，常にX-Y平面を取ると仮定する
     従って，磁気単極子の向きがズレた場合，ワイヤー位置もズレるのでデータを渡すときに変換すること
     """
-    def __init__(self, origin: np.array, wire_point: np.array, _sigma: float, _Psi: float):
+    def __init__(self, origin: np.array, wire_point: np.array, _sigma: float, _radius: float):
         """
         :param origin: 磁気単極子の原点
         :param wire_point: ワイヤー位置
         :param _sigma: 電荷密度
-        :param _Psi: 磁気単極子の半径
+        :param _radius: 磁気単極子の半径
         """
         self.sigma = _sigma 
-        self.Psi = _Psi
+        self.radius = _radius
         self.xi = np.array([1, 0, 0])
         self.origin = origin 
         self.wire_point = wire_point
@@ -60,14 +60,14 @@ class FieldStrengthOfMagneticMonopole:
         原点からワイヤ位置にかけて原点X-Y平面の磁束密度を求める
         :return: [0]は値, [1]は推定誤差
         """
-        return integrate.nquad(self._compute_Bz_in, [[0, self.Psi], [0, 2. * np.pi]])
+        return integrate.nquad(self._compute_Bz_in, [[0, self.radius], [0, 2. * np.pi]])
     
     def computeBw(self):
         """
         原点からワイヤ位置にかけて原点X-Y平面の磁束密度を求める
         :return: [0]は値, [1]は推定誤差
         """
-        return integrate.nquad(self._compute_Bz_in, [[0, self.Psi], [0, 2. * np.pi]])
+        return integrate.nquad(self._compute_Bz_in, [[0, self.radius], [0, 2. * np.pi]])
 
     def computeBwz(self, _MP: np.array, _gamma: float):
         """
