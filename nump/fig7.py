@@ -11,6 +11,7 @@ class Figure7(FigBase):
             pos = np.array([self.positions[i], 0, self.height + 7.1])
             mag = FieldStrengthOfMagneticMonopole(self.origin, pos, self.sigma, self.psi)
             self.bws.append(mag.computeBw()[0])
+        self.xlabel = "-> Horizontal displacement from top of magnet [mm]"
 
 fig = Figure7()
 fig.showCompareBw()

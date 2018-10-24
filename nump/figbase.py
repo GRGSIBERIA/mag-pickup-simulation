@@ -18,6 +18,7 @@ class FigBase:
         self.height = _height
         self.origin = np.array([0, 0, self.height])
         self.bws = []
+        self.xlabel = ""
     
     def showComputeBw(self):
         plot.plot(self.positions, self.bws, "-x")
@@ -30,12 +31,17 @@ class FigBase:
     def showCompareBw(self):
         a = self.original_bws / np.max(self.original_bws)
         b = self.bws / np.max(self.bws)
-        plot.plot(self.positions, a, "-x")
-        plot.plot(self.positions, b, "-x")
+        plot.plot(self.positions, a, "-x", label="Original")
+        plot.plot(self.positions, b, "-x", label="Theoretical values")
+        plot.xlabel(self.xlabel)
+        plot.ylabel("-> Magnetic field [G]")
+        plot.legend()
         plot.show()
     
     def printSigma(self):
         a = np.array(self.original_bws) / np.array(self.bws)
         plot.plot(self.positions, a, "-x")
+        plot.xlabel(self.xlabel)
+        plot.ylabel("-> $\\sigma$")
         plot.show()
     

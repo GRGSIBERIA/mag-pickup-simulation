@@ -11,6 +11,7 @@ class Figure6(FigBase):
             pos = np.array([0, 0, self.positions[i] + self.height])
             mag = FieldStrengthOfMagneticMonopole(self.origin, pos, self.sigma, self.psi)
             self.bws.append(mag.computeBw()[0])
+        self.xlabel = "-> Vertical displacement from top of magnet [mm]"
     
 fig = Figure6()
 fig.showCompareBw()
