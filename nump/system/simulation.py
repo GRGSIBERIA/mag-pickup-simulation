@@ -67,7 +67,7 @@ class FieldStrengthOfMagneticMonopole:
         原点からワイヤ位置にかけて原点X-Y平面の磁束密度を求める
         :return: [0]は値, [1]は推定誤差
         """
-        return integrate.nquad(self._compute_Bz_in, [[0, self.radius], [0, 2. * np.pi]])
+        return integrate.nquad(self._compute_Bw_in, [[0, self.radius], [0, 2. * np.pi]])
 
     def computeBwz(self, _MP: np.array, _gamma: float):
         """

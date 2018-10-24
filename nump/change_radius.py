@@ -8,7 +8,7 @@ bws = []
 count = 100
 for radius in range(count):
     fsmm = FieldStrengthOfMagneticMonopole(np.array([0, 0, 0]), np.array([0, 0, 5]), 1, radius)
-    bws.append(fsmm.computeBw()[0])
+    bws.append(fsmm.computeBz()[0])
 bws = np.array(bws)
 
 rads = np.linspace(0, count, count)
