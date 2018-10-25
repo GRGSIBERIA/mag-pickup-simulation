@@ -5,7 +5,7 @@ import numpy as np
 from system.simulation import FieldStrengthOfMagneticMonopole
 
 bws = []
-count = 100
+count = 1000
 for radius in range(count):
     fsmm = FieldStrengthOfMagneticMonopole(np.array([0, 0, 0]), np.array([0, 0, 5]), 1, radius)
     bws.append(fsmm.computeBz()[0])
