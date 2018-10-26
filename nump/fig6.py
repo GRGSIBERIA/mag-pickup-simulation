@@ -13,6 +13,6 @@ class Figure6(FigBase):
             self.bws.append(mag.computeBz()[0])
         self.xlabel = "-> Vertical displacement from top of magnet [mm]"
     
-fig = Figure6()
-fig.showCompareBw()
+fig = Figure6(radius=0.00000000000001)
+fig.showComputeBw()
 fig.printSigma()
