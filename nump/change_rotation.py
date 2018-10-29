@@ -4,22 +4,22 @@ import matplotlib.pyplot as plot
 import numpy as np
 from system.simulation import FieldStrengthOfMagneticMonopole
 
-def plotBz(divpi):
+def plotBz(divpi, xpos, radius):
     bws = []
 
-    vec = np.array([0, 1, 0])
+    vec = np.array([0, xpos, 0])
     itheta = np.pi / 2. / (divpi-1)
     
     count = divpi
-    for i in range(count):
-        theta = itheta * i
+    for _i in range(count):
+        theta = itheta * _i
         rot = np.matrix((
             [1, 0, 0], 
             [0, np.cos(theta), -np.sin(theta)], 
             [0, np.sin(theta), np.cos(theta)]))
         vector = -np.ravel(vec * rot)
         print(vector)
-        fsmm = FieldStrengthOfMagneticMonopole(np.array([0, 0, 0]), vector, 1, 1)
+        fsmm = FieldStrengthOfMagneticMonopole(np.array([0, 0, 0]), vector, 1, radius)
         bws.append(fsmm.computeBz()[0])
     bws = np.array(bws)
 
@@ -27,9 +27,9 @@ def plotBz(divpi):
 
     plot.plot(rads, bws)
 
-plotBz(100)
+for i in range(10):
+    plotBz(10, i+1, 0.00000000000001)
 
 plot.xlabel("-> Radian [rad]")
 plot.ylabel("-> Relative magnetic flux density [G]")
-plot.legend()
 plot.show()
