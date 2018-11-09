@@ -13,6 +13,6 @@ class Figure8(FigBase):
             self.bws.append(mag.computeBz()[0])
         self.xlabel = "-> Horizontal displacement from top of magnet [mm]"
 
-fig = Figure7()
+fig = Figure8()
 fig.showCompareBz()
 fig.printSigma()
