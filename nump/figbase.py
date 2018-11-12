@@ -19,9 +19,15 @@ class FigBase:
         self.origin = np.array([0, 0, self.height])
         self.bws = []
         self.xlabel = ""
+        self.equ_pos = []
+        self.equ_bws = []
+        self.relative_err = []
     
     def showComputeBw(self):
-        plot.plot(self.positions, self.bws, "-x")
+        a = self.original_bws / np.max(self.original_bws)
+        plot.plot(self.positions, a, "-x")
+        plot.plot(self.equ_pos,self.equ_bws,"-x")
+        #plot.plot(self.positions,self.relative_err,"-x")
         plot.show()
     
     def showComputeOriginBw(self):
@@ -44,6 +50,15 @@ class FigBase:
         plot.xlabel(self.xlabel)
         plot.ylabel("-> $\\sigma$")
         plot.show()
+        
+    def setEquPos(self,equ_pos):
+        self.equ_pos = equ_pos
+    
+    def setEquBws(self,equ_bws):
+        self.equ_bws = equ_bws
+    
+    def setRelativeErr(self,relative_err):
+        self.relative_err = relative_err
     
     def showCompareBz(self):
         #単純に直径だけ引いた部分との差を取っているだけでは？
