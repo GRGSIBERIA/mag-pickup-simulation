@@ -5,7 +5,7 @@ from system.simulation import FieldStrengthOfMagneticMonopole
 from figbase import FigBase
 
 class Figure8(FigBase):
-    def __init__(self, radius=6.5, _height=2.5):
+    def __init__(self, radius=1, _height=1):
         super().__init__("csv/Fig8.csv", radius, _height)
         for i, _ in enumerate(self.positions):
             pos = np.array([self.positions[i], 0, self.height + 5])
