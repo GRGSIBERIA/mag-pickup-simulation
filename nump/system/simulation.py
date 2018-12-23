@@ -45,7 +45,7 @@ class FieldStrengthOfMagneticMonopole:
         """
         frac_under_out = self._frac_under_out(_d_rho, _d_theta)
         frac_upper = self.sigma * (self.wire_point[2] - self.origin[2]) * _d_rho
-        return frac_upper / frac_under_out
+        return frac_upper / frac_under_out * self.radius
 
     def _compute_Bw_in(self, _d_rho: float, _d_theta: float):
         """
@@ -53,7 +53,7 @@ class FieldStrengthOfMagneticMonopole:
         """
         frac_under_out = self._frac_under_out(_d_rho, _d_theta)
         frac_upper = self.sigma * _d_rho
-        return frac_upper / frac_under_out
+        return frac_upper / frac_under_out * self.radius
 
     def computeBz(self):
         """
