@@ -14,5 +14,5 @@ class Figure7(FigBase):
         self.xlabel = "-> Horizontal displacement from top of magnet [mm]"
 
 fig = Figure7(radius=4.5, _height=3.)
-fig.showCompareBw()
+fig.showComputeBw()
 #fig.printSigma()
